@@ -39,3 +39,23 @@ class Solution:
                 curr.pop()
         backtrack([], 0, target)
         return res
+        
+    def diff_CombinationSum(self, candidates: list[int], target: int) -> list[list[int]]:
+        candidates.sort()
+        res = []
+
+        def backtrack(curr, idx, remain):
+            if remain < 0 or idx >= len(candidates):
+                return
+            if remain == 0:
+                res.append(curr.copy())
+                return
+
+            curr.append(candidates[idx])
+            backtrack(curr, idx, remain - candidates[idx]
+            curr.pop()
+            backtrack(curr, idx + 1, remain)
+
+        backtrack([], 0, target)
+        return res
+            
